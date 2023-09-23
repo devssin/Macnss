@@ -7,7 +7,7 @@ public class Jdbc {
     private static Jdbc instance;
 
     private Connection connection;
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/your_database";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/maCnss";
     private static final String JDBC_USER = "root";
     private static final String JDBC_PASSWORD = "";
 
