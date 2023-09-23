@@ -5,8 +5,4 @@ public class Admin extends User{
         super(userName, email, password);
     }
 
-    @Override
-    public void login(String email, String password) {
-
-    }
 }

@@ -10,8 +10,4 @@ public class Patient extends User{
         return matricule;
     }
 
-    @Override
-    public void login(String email, String password) {
-
-    }
 }
