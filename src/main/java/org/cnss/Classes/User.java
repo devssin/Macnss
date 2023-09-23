@@ -34,6 +34,5 @@ public abstract class User {
         User.password = password;
     }
 
-    public abstract void login(String email,String password);
 
 }
