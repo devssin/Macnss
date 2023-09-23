@@ -35,5 +35,6 @@ public abstract class Document {
         this.reimbursementRate = reimbursementRate;
     }
 
+    public abstract int reimbursement_total(int payedAmount, int reimbursementRate);
 
 }

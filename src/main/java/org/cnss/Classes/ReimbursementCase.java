@@ -5,8 +5,6 @@ import java.util.List;
 public class ReimbursementCase {
     private List<Document> documents;
 
-    // Constructor, getter, and setter for documents
-
     public ReimbursementCase(List<Document> documents) {
         this.documents = documents;
     }
@@ -19,5 +17,4 @@ public class ReimbursementCase {
         this.documents = documents;
     }
 
-    // Other methods for ReimbursementCase class
 }

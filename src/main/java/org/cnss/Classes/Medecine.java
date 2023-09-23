@@ -9,4 +9,9 @@ public class Medecine extends Document{
     public Medecine(String code, int payedAmount, int reimbursementRate) {
         super(code, payedAmount, reimbursementRate);
     }
+
+    @Override
+    public int reimbursement_total(int payedAmount, int reimbursementRate) {
+        return 0;
+    }
 }
