@@ -14,4 +14,9 @@ public class Agent extends User {
     public static void add_agent(String userName, String email, String password){
 
     }
+
+    @Override
+    public void login(String email, String password) {
+
+    }
 }

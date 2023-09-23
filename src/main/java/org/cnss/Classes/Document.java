@@ -1,6 +1,6 @@
 package org.cnss.Classes;
 
-public class Document {
+public abstract class Document {
     private String code;
     private int payedAmount;
     private int reimbursementRate;
@@ -34,5 +34,6 @@ public class Document {
     public void setReimbursementRate(int reimbursementRate) {
         this.reimbursementRate = reimbursementRate;
     }
+
 
 }
