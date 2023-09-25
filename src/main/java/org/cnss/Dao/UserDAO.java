@@ -10,5 +10,4 @@ public interface UserDAO<user extends User> {
     ResultSet getAllUsers();
     boolean addUser(user user);
     boolean updateUser(user user);
-    boolean deleteUser(int userId);
 }
