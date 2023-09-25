@@ -15,7 +15,7 @@ public class AgentDAO implements UserDAO<Agent> {
     public AgentDAO() {
         connection = DatabaseConnection.getConnection();
     }
-    public Agent authenticate(String email, String password) {
+    public int authenticate(String email, String password) {
         try {
             String query = "SELECT * FROM agent WHERE email = ? AND password = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -28,22 +28,31 @@ public class AgentDAO implements UserDAO<Agent> {
                 int agentId = resultSet.getInt("id");
                 String username = resultSet.getString("username");
                 Agent agent = new Agent(username, email, password, agentId);
-                return agent;
+                return agentId;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return 0;
     }
 
     @Override
     public Agent getUserById(int id) {
+
         return null;
     }
 
     @Override
-    public List<Agent> getAllUsers() {
-        return null;
+    public ResultSet getAllUsers() {
+        try {
+            String query = "SELECT * FROM agent";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            return resultSet;
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

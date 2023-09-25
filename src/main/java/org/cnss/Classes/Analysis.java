@@ -1,16 +1,8 @@
 package org.cnss.Classes;
 
-public class Analysis extends Document{
-    private static int id;
+public class Analysis extends Document {
     private static String laboratory;
     private static String description;
-    public static int getId() {
-        return id;
-    }
-
-    public static void setId(int id) {
-        Analysis.id = id;
-    }
 
     public static String getLaboratory() {
         return laboratory;
@@ -28,11 +20,7 @@ public class Analysis extends Document{
         Analysis.description = description;
     }
 
-    public Analysis(String code, int payedAmount, int reimbursementRate) {
-        super(code, payedAmount, reimbursementRate);
-    }
-    @Override
-    public int reimbursement_total(int payedAmount, int reimbursementRate) {
-        return 0;
+    public Analysis(int id, String code, String payedAmount, String reimbursementRate) {
+        super(id, code, payedAmount, reimbursementRate);
     }
 }
