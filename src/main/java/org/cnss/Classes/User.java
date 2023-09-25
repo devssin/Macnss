@@ -10,6 +10,11 @@ public abstract class User {
         this.email = email;
         this.password = password;
     }
+
+    public User(String email) {
+        this.email = User.email;
+    }
+
     public static String getUserName() {
         return userName;
     }

@@ -27,6 +27,24 @@ public class AdminApp {
                     System.out.println("Failed to add user.");
                 }
             }
+            case 2 : {
+                String email = JOptionPane.showInputDialog(null,"Entrer l'email de l'agent à modofier");
+                int isUserAdded = agentDAO.getUserByEmail(email);
+
+                if (isUserAdded > 0) {
+                    String userName = JOptionPane.showInputDialog(null,"Entrer le nom complet de l'agent");
+                    String password = JOptionPane.showInputDialog(null,"Entrer le mot de passe de l'agent");
+                    Agent newAgent = new Agent(userName,email,password);
+                    boolean isUserUpdated = agentDAO.updateUser(newAgent);
+                    if (isUserUpdated){
+                        JOptionPane.showMessageDialog(null,"User Updated successfully.");
+                    } else {
+                        JOptionPane.showMessageDialog(null,"Failed to add user.","error", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null,"Agent introuvable");
+                }
+            }
         }
 
 

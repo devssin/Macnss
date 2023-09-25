@@ -2,13 +2,12 @@ package org.cnss.Classes;
 
 public class Agent extends User {
 
-
-
-
     private static int id;
+    private static String email;
     public Agent(String userName, String email, String password) {
         super(userName, email, password);
     }
+
     public static void setId(int id) {
         Agent.id = id;
     }
