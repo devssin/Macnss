@@ -1,10 +1,11 @@
 package org.cnss;
 
 import javax.swing.*;
+import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) {
-        int option = Integer.parseInt(JOptionPane.showInputDialog(null,"Bienvenu dans votre espace macnss\n" +
+    public static void main(String[] args) throws SQLException {
+        int option = Integer.parseInt(JOptionPane.showInputDialog(null,"Espace MaCnss\n" +
                 "1 : Espace Agent \n" +
                 "2 : Espace Patient"));
 

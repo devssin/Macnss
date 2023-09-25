@@ -1,16 +1,27 @@
 package org.cnss.Classes;
 
 public abstract class Document {
-    private String code;
-    private int payedAmount;
-    private int reimbursementRate;
 
-    public Document(String code, int payedAmount, int reimbursementRate) {
+
+    private int id;
+    private String code;
+    private String payedAmount;
+    private String reimbursementRate;
+
+    public Document(int id, String code, String payedAmount, String reimbursementRate) {
+        this.id = id;
         this.code = code;
         this.payedAmount = payedAmount;
         this.reimbursementRate = reimbursementRate;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getCode() {
         return code;
     }
@@ -19,22 +30,21 @@ public abstract class Document {
         this.code = code;
     }
 
-    public int getPayedAmount() {
+    public String getPayedAmount() {
         return payedAmount;
     }
 
-    public void setPayedAmount(int payedAmount) {
+    public void setPayedAmount(String payedAmount) {
         this.payedAmount = payedAmount;
     }
 
-    public int getReimbursementRate() {
+    public String getReimbursementRate() {
         return reimbursementRate;
     }
 
-    public void setReimbursementRate(int reimbursementRate) {
+    public void setReimbursementRate(String reimbursementRate) {
         this.reimbursementRate = reimbursementRate;
     }
 
-    public abstract int reimbursement_total(int payedAmount, int reimbursementRate);
 
 }

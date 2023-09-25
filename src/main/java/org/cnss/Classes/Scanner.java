@@ -1,17 +1,8 @@
 package org.cnss.Classes;
 
 public class Scanner extends Document{
-    private static int id;
     private static String laboratory;
-
-    public static int getId() {
-        return id;
-    }
-
-    public static void setId(int id) {
-        Scanner.id = id;
-    }
-
+    private static String description;
     public static String getLaboratory() {
         return laboratory;
     }
@@ -28,14 +19,10 @@ public class Scanner extends Document{
         Scanner.description = description;
     }
 
-    private static String description;
 
-    public Scanner(String code, int payedAmount, int reimbursementRate) {
-        super(code, payedAmount, reimbursementRate);
+    public Scanner(int id ,String code, String payedAmount, String reimbursementRate) {
+        super(id, code, payedAmount, reimbursementRate);
     }
 
-    @Override
-    public int reimbursement_total(int payedAmount, int reimbursementRate) {
-        return 0;
-    }
+
 }
