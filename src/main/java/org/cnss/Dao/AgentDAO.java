@@ -86,7 +86,6 @@ public class AgentDAO implements UserDAO<Agent> {
         }
     }
 
-
     @Override
     public boolean updateUser(Agent user) {
         try {

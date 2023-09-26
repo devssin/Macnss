@@ -4,14 +4,17 @@ import org.cnss.Classes.Agent;
 import org.cnss.Dao.AgentDAO;
 
 import javax.swing.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class AdminApp {
-    public static void main() {
+    public static void main() throws SQLException {
         AgentDAO agentDAO = new AgentDAO();
         JOptionPane.showMessageDialog(null,"Admin dashbord");
         int choice = Integer.parseInt(JOptionPane.showInputDialog(null,"Gestion des agents\n" +
                 "1 : Ajouter un agent\n" +
-                "2 : Modifier les informations d'un agent\n"));
+                "2 : Modifier les informations d'un agent\n" +
+                "3 : Voir la liste des agents"));
 
         switch (choice){
             case 1 : {
@@ -44,6 +47,17 @@ public class AdminApp {
                 } else {
                     JOptionPane.showMessageDialog(null,"Agent introuvable","error", JOptionPane.ERROR_MESSAGE);
                 }
+                break;
+            }
+            case 3 :{
+                ResultSet resultSet = agentDAO.getAllUsers();
+                String username;
+                String email;
+                while (resultSet.next()){
+                    username = resultSet.getString("username");
+                    email = resultSet.getString("email");
+                }
+                JOptionPane.showMessageDialog(null,"");
             }
         }
 
