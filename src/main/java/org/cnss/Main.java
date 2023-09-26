@@ -16,7 +16,7 @@ public class Main {
             }case 2 : {
                 PatientApp.main();
                 break;
-            }case 3 : {
+            }case 9 : {
                 AdminApp.main();
                 break;
             }

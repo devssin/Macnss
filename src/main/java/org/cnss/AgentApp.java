@@ -45,6 +45,18 @@ public class AgentApp {
                          boolean isCase = reimbursementCaseDAO.createCase(patient_id,agent_id);
                          if(isCase){
                              JOptionPane.showMessageDialog(null,"Dossier bien créé !");
+                             int subchoice = Integer.parseInt(JOptionPane.showInputDialog(null,"Gestion du dossierCnss\n" +
+                                     "1 : Ajouter un medicament\n" +
+                                     "2 : Ajouter un radio \n" +
+                                     "3 : Ajouter un scanner\n" +
+                                     "4 : Ajouter une analyse\n" +
+                                     "5 : Ajouter une visite médicale\n"));
+                             switch (subchoice){
+                                 case 1 : {
+                                     String code = JOptionPane.showInputDialog(null,"Entrer le codeBarre du medicament");
+                                     break;
+                                 }
+                             }
                          }else{
                              JOptionPane.showMessageDialog(null,"une erreur est survenue !", "error", JOptionPane.ERROR_MESSAGE);
                          }
