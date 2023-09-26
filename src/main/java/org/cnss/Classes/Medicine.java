@@ -1,38 +1,39 @@
 package org.cnss.Classes;
 
-public class Medicine extends Document{
-    private static String codeBarre;
-    private static String name;
+public class Medicine extends Document {
+    private String codeBarre;
+    private String name;
+    private String factory;
 
-    public static String getCodeBarre() {
+    public String getCodeBarre() {
         return codeBarre;
     }
 
-    public static void setCodeBarre(String codeBarre) {
-        Medicine.codeBarre = codeBarre;
+    public void setCodeBarre(String codeBarre) {
+        this.codeBarre = codeBarre;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
-    public static void setName(String name) {
-        Medicine.name = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public static String getFactory() {
+    public String getFactory() {
         return factory;
     }
 
-    public static void setFactory(String factory) {
-        Medicine.factory = factory;
+    public void setFactory(String factory) {
+        this.factory = factory;
     }
 
-    private static String factory;
-
-    public Medicine(int id , String code, String payedAmount, String reimbursementRate) {
-        super(id, code, payedAmount, reimbursementRate);
+    public Medicine(String code, String codeBarre, String name, int payedAmount, int reimbursementRate) {
+        super(code, payedAmount, reimbursementRate);
+        this.codeBarre = codeBarre;
+        this.name = name;
     }
-
 
 }
+

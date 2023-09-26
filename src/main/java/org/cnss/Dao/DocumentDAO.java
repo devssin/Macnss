@@ -1,8 +1,6 @@
 package org.cnss.Dao;
 
-import com.mysql.cj.protocol.Resultset;
 import org.cnss.Classes.Document;
-import org.cnss.Classes.User;
 
 import java.sql.ResultSet;
 
