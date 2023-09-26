@@ -57,7 +57,6 @@ public class AdminApp {
                     username = resultSet.getString("username");
                     email = resultSet.getString("email");
                 }
-                JOptionPane.showMessageDialog(null,"");
             }
         }
 
