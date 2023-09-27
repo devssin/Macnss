@@ -3,10 +3,16 @@ package org.cnss;
 import org.cnss.Classes.*;
 import org.cnss.Dao.*;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Objects;
+import java.util.Properties;
+import java.util.UUID;
 
 
 public class AgentApp {
@@ -24,6 +30,17 @@ public class AgentApp {
         agent_id = agentDAO.authenticate(email, password);
 
         if (agent_id >0) {
+
+            String verification_code = UUID.randomUUID().toString();
+            String body = "Votre verification code est : " + verification_code;
+            sendMail(body, "Verification email", email);
+
+            String code_recived = JOptionPane.showInputDialog(null, "Entrez le code de verification");
+
+            if(!Objects.equals(code_recived, verification_code)){
+                JOptionPane.showMessageDialog(null, "Verification code est invalid !!", "Erreur", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             int choice = -1;
             while (choice != 0){
                 choice= Integer.parseInt(JOptionPane.showInputDialog(null, """
@@ -239,6 +256,35 @@ public class AgentApp {
             }
         } else {
             JOptionPane.showMessageDialog(null, "Agent introuvable !!", "Erreur", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public static Boolean sendMail(String body,String subject ,String email) {
+        final String username = "yassin.aaynealhayate@gmail.com";
+        final String password = "rzma gghi rvtn avzy";
+        Properties properties = System.getProperties();
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.port", "587");
+        properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
+        properties.put("mail.smtp.starttls.enable", "true");
+        Session session = Session.getInstance(properties, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+            message.setSubject(subject);
+            message.setText(body);
+            Transport.send(message);
+            return true;
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }
